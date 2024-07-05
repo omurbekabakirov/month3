@@ -15,6 +15,14 @@ async def mem(message: types.Message):
     await bot.send_photo(chat_id=message.from_user.id, photo=InputFile(random_photo))
 
 
+async def files(message: types.Message):
+    path = 'files/'
+    file = glob.glob(os.path.join(path, '*'))
+    random_file = random.choice(file)
+    await bot.send_audio(chat_id=message.from_user.id, audio=InputFile(random_file))
+
+
 def register_commands(dp: Dispatcher):
     dp.register_message_handler(start, commands=['start', 'начало'])
     dp.register_message_handler(mem, commands=['mem', 'мем'])
+    dp.register_message_handler(files, commands=['file'])
