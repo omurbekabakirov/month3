@@ -1,7 +1,7 @@
 from config import dp, bot, Admin
 from aiogram.utils import executor
 import logging
-from handlers import comands, echo, quiz
+from handlers import comands, echo, quiz, fsm_reg
 
 async def on_startup(_):
     for i in Admin:
@@ -12,11 +12,12 @@ async def on_shutdown(_):
     for i in Admin:
         await bot.send_message(chat_id=i, text='bot stoped')
 
-comands.register_commands(dp)
-quiz.register_quiz(dp)
+comands.register_commands(dp=dp)
+quiz.register_quiz(dp=dp)
+fsm_reg.register_fsm_fpr_user(dp=dp)
 
 #this is echo function you must call it only at the end
-echo.register_commands(dp)
+echo.register_echo(dp=dp)
 
 
 if __name__ == '__main__':
