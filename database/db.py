@@ -10,6 +10,7 @@ async def create_table():
         print("database connected")
     cursor.execute(sql_queris.create_table_store)
     cursor.execute(sql_queris.create_table_details)
+    cursor.execute(sql_queris.create_table_collection_products)
     conn.commit()
 
 
@@ -29,4 +30,11 @@ async def sql_insert_details(product_id, category, infoproduct):
     cursor.execute(
         sql_queris.insert_details(
             product_id, category, infoproduct
+        ))
+
+
+async def sql_insert_collection(product_id, collection):
+    cursor.execute(
+        sql_queris.insert_details(
+            product_id, collection
         ))

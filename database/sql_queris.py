@@ -24,3 +24,14 @@ create_table_details = '''
 insert_details = '''
 INSERT INTO product_details(product_id,category,infoproduct) VALUES (?,?,?)
 '''
+
+create_table_collection_products = '''
+    CREATE TABLE IF NOT EXISTS collection_products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    product_id VARCHAR(255),
+    collection TEXT)
+'''
+
+insert_collection = '''
+INSERT INTO collection_products(id,product_id,collection) VALUES (?,?,?)
+'''

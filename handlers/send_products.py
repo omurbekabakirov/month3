@@ -34,6 +34,7 @@ def fetch_products_by_id(product_id):
     conn.close()
     return product
 
+
 async def start_sending_products(message: types.Message):
     products = fetch_all_products()
     if products:
