@@ -4,53 +4,61 @@ from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import buttons
-from database.db import Database
 
 
 class RegisterUSer(StatesGroup):
-    model_name = State()
-    size = State()
-    category = State()
-    price = State()
+    full_name = State()
+    age = State()
+    address = State()
+    phone_number = State()
+    email = State()
     photo = State()
     submit = State()
 
 
 async def fsm_start(message: types.Message):
-    await RegisterUSer.model_name.set()
-    await message.answer(text='enter name of the model 👇', reply_markup=buttons.cancel)
+    await RegisterUSer.full_name.set()
+    await message.answer(text='enter your full name 👇', reply_markup=buttons.cancel)
 
 
-async def load_model_name(message: types.Message, state: FSMContext):
+async def load_name(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
-        data['model_name'] = message.text
+        data['full_name'] = message.text
 
     await RegisterUSer.next()
-    await message.answer(text='enter size of the model 👇')
+    await message.answer(text='enter your age 👇')
 
 
-async def load_size(message: types.Message, state: FSMContext):
+async def load_age(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
-        data['size'] = message.text
+        data['age'] = message.text
 
     await RegisterUSer.next()
-    await message.answer(text='enter category of the model👇')
+    await message.answer(text='enter your phone number 👇')
 
 
-async def load_category(message: types.Message, state: FSMContext):
+async def load_address(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
-        data['category'] = message.text
+        data['address'] = message.text
 
     await RegisterUSer.next()
-    await message.answer(text='enter price of the model 👇')
+    await message.answer(text='enter your address 👇')
 
 
-async def load_price(message: types.Message, state: FSMContext):
+async def load_phone_number(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
-        data['price'] = message.text
+        data['phone_number'] = message.text
 
     await RegisterUSer.next()
-    await message.answer(text='send photo of the model 👇')
+    await message.answer(text='send your email 👇')
+
+
+async def load_email(message: types.Message, state: FSMContext):
+    async with state.proxy() as data:
+        data['email'] = message.text
+
+    await RegisterUSer.next()
+    await message.answer(text='send your photo 👇')
 
 
 async def load_photo(message: types.Message, state: FSMContext):
@@ -65,22 +73,12 @@ async def load_photo(message: types.Message, state: FSMContext):
     await RegisterUSer.next()
     await message.answer(text='<b>Do you want to submit ?</b>', parse_mode=types.ParseMode.HTML)
     await message.answer_photo(photo=data['photo'],
-                               caption=f'model_name - {data["model_name"]}\n'
-                                       f'size - {data["size"]}\n'
-                                       f'category - {data["category"]}\n'
-                                       f'price - {data["price"]}\n',
+                               caption=f'full_name - {data["full_name"]}\n'
+                                       f'age - {data["age"]}\n'
+                                       f'address - {data["address"]}\n'
+                                       f'phone_number - {data["phone_number"]}\n'
+                                       f'email - {data["email"]}',
                                        reply_markup=keyword)
-
-    datab = Database()
-    path = await message.photo[-1].download(destination_dir='media_destination/')
-    async with state.proxy() as data:
-        datab.insert_model(
-            tg_id=message.from_user.id,
-            model_name=data['model_name'],
-            category=data['category'],
-            price=data['price'],
-            photo=path.name
-        )
 
 
 async def submit(callback_query: types.CallbackQuery, state: FSMContext):
@@ -104,9 +102,10 @@ async def cancel(message: types.Message, state: FSMContext):
 def register_fsm_fpr_user(dp: Dispatcher):
     dp.register_message_handler(cancel, Text(equals='cancel', ignore_case=True), state='*')
     dp.register_message_handler(fsm_start, commands=['registration'])
-    dp.register_message_handler(load_model_name, state=RegisterUSer.model_name)
-    dp.register_message_handler(load_size, state=RegisterUSer.size)
-    dp.register_message_handler(load_category, state=RegisterUSer.category)
-    dp.register_message_handler(load_price, state=RegisterUSer.price)
+    dp.register_message_handler(load_name, state=RegisterUSer.full_name)
+    dp.register_message_handler(load_age, state=RegisterUSer.age)
+    dp.register_message_handler(load_address, state=RegisterUSer.address)
+    dp.register_message_handler(load_phone_number, state=RegisterUSer.phone_number)
+    dp.register_message_handler(load_email, state=RegisterUSer.email)
     dp.register_message_handler(load_photo, state=RegisterUSer.photo, content_types=['photo'])
     dp.register_callback_query_handler(submit, state=RegisterUSer.submit)

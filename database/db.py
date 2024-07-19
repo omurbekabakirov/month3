@@ -1,17 +1,32 @@
 import sqlite3
 from database import sql_queris
 
+conn = sqlite3.connect('db.sqlite3')
+cursor = conn.cursor()
 
-class Database:
-    def __init__(self):
-        self.conn = sqlite3.connect('db.sqlite3')
-        self.cursor = self.conn.cursor()
 
-    def create_table(self):
-        if self.conn:
-            print("database connected")
-        self.cursor.execute(sql_queris.create_table_model)
+async def create_table():
+    if conn:
+        print("database connected")
+    cursor.execute(sql_queris.create_table_store)
+    cursor.execute(sql_queris.create_table_details)
+    conn.commit()
 
-    def insert_model(self, tg_id, model_name, category, price, photo):
-        self.cursor.execute(sql_queris.insert_into_table_model(None, tg_id, model_name, category, price, photo))
-        self.conn.commit()
+
+async def sql_insert(name_product, size, price, product_id, photo):
+    cursor.execute(sql_queris.insert_store,
+                   (
+                       name_product,
+                       size,
+                       price,
+                       product_id,
+                       photo
+                   ))
+    conn.commit()
+
+
+async def sql_insert_details(product_id, category, infoproduct):
+    cursor.execute(
+        sql_queris.insert_details(
+            product_id, category, infoproduct
+        ))
