@@ -1,7 +1,7 @@
 from config import dp, bot, Admin
 from aiogram.utils import executor
 import logging
-from handlers import comands, echo, quiz, fsm_reg, send_products, notification, fsm_online_store
+from handlers import comands, echo, quiz, fsm_reg, send_products, notification, fsm_online_store, webapp, admin_group
 from database import db
 
 
@@ -22,6 +22,8 @@ fsm_reg.register_fsm_fpr_user(dp=dp)
 fsm_online_store.register_fsm_store(dp=dp)
 send_products.register_send_products(dp=dp)
 notification.register_notification(dp=dp)
+webapp.register_webapp(dp=dp)
+admin_group.register_admin_group(dp=dp)
 # this is echo function you must call it only at the end
 echo.register_echo(dp=dp)
 
