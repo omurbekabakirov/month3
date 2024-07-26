@@ -28,13 +28,13 @@ async def sql_insert(name_product, size, price, product_id, photo):
 
 async def sql_insert_details(product_id, category, infoproduct):
     cursor.execute(
-        sql_queris.insert_details(
+        sql_queris.insert_details, (
             product_id, category, infoproduct
         ))
 
 
 async def sql_insert_collection(product_id, collection):
     cursor.execute(
-        sql_queris.insert_details(
+        sql_queris.insert_collection, (
             product_id, collection
         ))

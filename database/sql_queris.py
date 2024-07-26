@@ -22,7 +22,7 @@ create_table_details = '''
 '''
 
 insert_details = '''
-INSERT INTO product_details(product_id,category,infoproduct) VALUES (?,?,?)
+INSERT INTO prodcut_details(product_id,category,infoproduct) VALUES (?,?,?)
 '''
 
 create_table_collection_products = '''
@@ -33,5 +33,5 @@ create_table_collection_products = '''
 '''
 
 insert_collection = '''
-INSERT INTO collection_products(id,product_id,collection) VALUES (?,?,?)
+INSERT INTO collection_products(product_id,collection) VALUES (?,?)
 '''

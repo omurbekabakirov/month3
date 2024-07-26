@@ -2,6 +2,7 @@ from config import dp, bot, Admin
 from aiogram.utils import executor
 import logging
 from handlers import comands, echo, quiz, fsm_reg, send_products, notification, fsm_online_store, webapp, admin_group
+from google_sheets import sheet
 from database import db
 
 
@@ -24,6 +25,7 @@ send_products.register_send_products(dp=dp)
 notification.register_notification(dp=dp)
 webapp.register_webapp(dp=dp)
 admin_group.register_admin_group(dp=dp)
+sheet.register_g_sheets(dp=dp)
 # this is echo function you must call it only at the end
 echo.register_echo(dp=dp)
 

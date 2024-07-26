@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "turnkey-cocoa-430610-b3",
+  "private_key_id": "e07f37c7af395c37216e14871a3b812186e539ac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCcJFCSlUxs9Trz\nDQdMung6nGK3yfemBK3Op9l1ycB61z2ZVgn/Tirrz29UgaruuRg3yk/X2uf0DYjH\nx29wg+KRzJt9Jy4SaNkGxt5UbqFXZlxomg+PDLUliFCYAlai01xYCYin8P88B4Ie\nRuHw5BBaumkCDh4Y6kOpILtYmkiSRikDBA+JICFQni8XFhzWpUBRHmbhPMYH4+tw\nzYwl00ODvYBciUegD+m+hn1KqaE4DqN9fez1fqNFJXnf+yYcalB99UDUrVD1NVGN\n6+ub8d8Hm7LwKq1x5Bk6YSKgUAKkH+iO0OZMKA5XuABVcQZtJkp9Xj4x0jOhegBO\n6G7qykYhAgMBAAECggEACCg2hF3j2vpZvMpUtAu2zbsPRjI5K5VpfhcTO33Rfilh\n+LF/vrR29hBFbOkERMnrK7j4QFrZjMyrNWKkHgDp1HuXsOtb0w7iraG0ij0oVSBO\nGhHYV70Odpo/OZ2/qGx50ciXuMxUjS6IO+wwkAzeFNtRso+Jv3v3km2ZE/klauzG\nAnX48O+6cMlJh7claj+nYlGhmTy+cWIFn/mkwVd6mXzTSw20LkfbJ37YxVr0A7jd\nM9FvENZMXKSNnnEz9Pca3bP8Y2GA0wM0m7BpjqFRSvNbqdREobHtV0das3D+CyyD\nPXTUGaiAPcNlVlnNIxue35r+0XF8hS7U5wwZh8+R0QKBgQDIA9RFD1Zeh/M7fGuh\ngWAjjS4UEjsOirgl82Dbg8QprbB5K+iGfLAuVxJvzSPeW9Sorw+WfI2HK5jw8jT1\nxtWjklorcOTktttMfK7VODt4hi+u70fL7svpE4WyyTXsVMOeMHwCUIzf338wqoKB\nLXEZ37OUx01UC+9rX1Zfo2pEuQKBgQDH2LyTK4uiezl6+nRDL/QkrK7/bd8HIVEB\n2YX7piKe6e1XWrmGFpqZ3IIu74OaPv2NEKssX9QjtlVHEullKq0B80MlI6MFhkxw\nj0ifDO40Y21aXp4rJXnMzVJwD6b+6aXfVb8UvCxlWd99Hq/TQudYMM8GeWUBLnEr\n8lF4PxYoqQKBgC70PyurKxJsBdysG7RBY+lUpkGN+hEy3YIDPXSq3S0PmkMH3MFd\nmhp21Fwso0P6+NRUrGseeDcINBI0OdyMvfB1VfemvAU5LAgrqPtjBQsJLT5667bj\nKzlfHN7Yv3DogTesmCAO+tM/a2NoU9Sxb0CstEKz+uJFHwJs0iEHgtX5AoGBAJE1\nP1fkBRKrXImp375N4qSfQIxiRfKFV7nzVvIRtggnywd06Wavl+gCHCmEaOgzqsHM\nAcQ9YQQN4QrCiAm1J35KRlh++13xRitnQQooOBCiyfsm0uBg245fBe5cwSdpl9ee\nEzg6vjtqQQRFvtXPQA+Jb3Ox0x03pI2dBWtM04n5AoGAA5w0z2YFAVh8lYO/m9Gu\nzWMm77mUe7e266LDzeuf86K76X777gkcYwiwgN3Qtk44iKX7AodfEIAwXUaVXyyD\nvsJuS9H4X0YbdlY7VjYQFosbO3DgDiPV4yohqgcwpRJvD+bDvhndw6a8Bsc6odkT\niKhqUcpU9v/NG7IJq1y/EoU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "homework-7@turnkey-cocoa-430610-b3.iam.gserviceaccount.com",
+  "client_id": "109646512698412311195",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/homework-7%40turnkey-cocoa-430610-b3.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

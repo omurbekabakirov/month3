@@ -5,6 +5,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 import buttons
 from database import db
+from google_sheets.sheet import update_google_sheet_products
 
 
 class Store(StatesGroup):
@@ -69,7 +70,7 @@ async def load_info_for_product(message: types.Message, state: FSMContext):
         data['info_product'] = message.text
 
     await Store.next()
-    await message.answer(text='send a collection for product:', reply_markup=kb)
+    await message.answer(text='send a collection for product:')
 
 
 async def load_collection(message: types.Message, state: FSMContext):
@@ -107,18 +108,27 @@ async def submit(message: types.Message, state: FSMContext):
                 name_product=data['name_product'],
                 size=data['size'],
                 price=data['price'],
-                product_id=data['product_id'],
+                product_id=data['productid'],
                 photo=data['photo']
             )
 
             await db.sql_insert_details(
-                product_id=data['product_id'],
+                product_id=data['productid'],
                 category=data['category'],
                 infoproduct=data['info_product']
             )
 
             await db.sql_insert_collection(
-                product_id=data['product_id'],
+                product_id=data['productid'],
+                collection=data['collection']
+            )
+            update_google_sheet_products(
+                name_product=data['name_product'],
+                size=data['size'],
+                price=data['price'],
+                productid=data['productid'],
+                category=data['category'],
+                infoproduct=data['info_product'],
                 collection=data['collection']
             )
             await message.answer('Отлично! Регистрация пройдена.', reply_markup=buttons.start_buttons)
